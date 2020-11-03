@@ -9,13 +9,16 @@
 version: '3'
 services:
   nagios:
-    image: jasonrivers/nagios:latest
+    ports:
+    - "2000:80"
+    image: n4zmz/b-lan:nagios
     volumes:
     - nagiosetc:/opt/nagios/etc
     - nagiosvar:/opt/nagios/var
     - customplugins:/opt/Custom-Nagios-Plugins
     - nagiosgraphvar:/opt/nagiosgraph/var
     - nagiosgraphetc:/opt/nagiosgraph/etc
+    - nagiosapache:/var/log/apache2
 
 volumes:
     nagiosetc:
@@ -23,3 +26,4 @@ volumes:
     customplugins:
     nagiosgraphvar:
     nagiosgraphetc:
+    nagiosapache:
