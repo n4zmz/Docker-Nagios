@@ -1,4 +1,7 @@
-FROM ubuntu
+FROM arm64v8/ubuntu:latest
+
+COPY qemu-arm-static /usr/bin
+
 MAINTAINER Dennis Boylan <dennis@b-lan.com>
 
 ENV NAGIOS_HOME            /opt/nagios
