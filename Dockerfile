@@ -24,11 +24,11 @@ ENV NAGIOS_BRANCH          master
 ENV NAGIOS_PLUGINS_BRANCH  master
 ENV NRPE_BRANCH            master
 
-RUN apt-get update && apt-get install -y postfix
+RUN apt update && apt install -y postfix
 RUN echo postfix postfix/main_mailer_type string "'Internet Site'" | debconf-set-selections 
 RUN echo postfix postfix/mynetworks string "127.0.0.0/8" | debconf-set-selections 
 RUN echo postfix postfix/mailname string ${NAGIOS_FQDN} | debconf-set-selections
-RUN apt-get install -y    \
+RUN apt install -y    \
         apache2                             \
         apache2-utils                       \
         autoconf                            \
